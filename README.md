@@ -31,6 +31,23 @@ Create a build folder and link it into a new docker container:
 mkdir ~/mybuild
 docker run -v ~/mybuild:/home/ubuntu -it openwrt_builder /bin/bash
 ```
+or
+```
+mkdir ~/mybuild
+docker run --rm -d --name openwrt_builder -p 22022:22 -v ~/mybuild:/home/ubuntu openwrt_builder
+docker exec -it openwrt_builder /bin/bash
+```
+import key
+```
+mkdir .ssh
+echo "your pubkey" >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
+```
+
+ssh
+```
+ssh ubuntu@127.0.0.1 -p 22022
+```
 
 In the container console, enter:
 ```
