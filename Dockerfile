@@ -15,7 +15,7 @@ RUN apt-get update &&\
         python3 python3-distutils-extra rsync curl libsnmp-dev liblzma-dev \
         libpam0g-dev cpio rsync && \
     apt-get clean && \
-    useradd -m ubuntu&& \
+    useradd -s /bin/bash -m ubuntu && \
     echo 'ubuntu ALL=NOPASSWD: ALL' > /etc/sudoers.d/ubuntu
 
 RUN apt-get update && \
